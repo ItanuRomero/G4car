@@ -23,7 +23,8 @@ from core.views import home, cadastro_cliente, listagem_clientes, \
     cadastro_mensalista, listagem_mensalistas, \
     atualiza_parametro, exclui_parametro, \
     cadastro_movimento, listagem_movimentos, \
-    atualiza_movimento
+    atualiza_movimento, atualiza_mensalista, \
+    exclui_movimento, exclui_mensalista
 from django.conf import settings
 from django.conf.urls.static import static
 
@@ -43,13 +44,16 @@ urlpatterns = [
     path('exclui_veiculo/<int:id>', exclui_veiculo, name='url_exclui_veiculo'),
     path('cadastro_parametro/', cadastro_parametro, name='url_cadastro_parametro'),
     path('listagem_parametros/', listagem_parametros, name='url_listagem_parametros'),
+    path('atualiza_parametro/<int:id>', atualiza_parametro, name='url_atualiza_parametro'),
     path('cadastro_mensalista/', cadastro_mensalista, name='url_cadastro_mensalista'),
     path('listagem_mensalistas/', listagem_mensalistas, name='url_listagem_mensalistas'),
-    path('atualiza_parametro/<int:id>', atualiza_parametro, name='url_atualiza_parametro'),
+    path('atualiza_mensalista/<int:id>', atualiza_mensalista, name='url_atualiza_mensalista'),
+    path('exclui_mensalista/<int:id>', exclui_mensalista, name='url_exclui_mensalista'),
     path('exclui_parametro/<int:id>', exclui_parametro, name='url_exclui_parametro'),
     path('cadastro_movimento/', cadastro_movimento, name='url_cadastro_movimento'),
     path('listagem_movimentos/', listagem_movimentos, name='url_listagem_movimentos'),
     path('atualiza_movimento/<int:id>/', atualiza_movimento, name='url_atualiza_movimento'),
+    path('exclui_movimento/<int:id>', exclui_movimento, name='url_exclui_movimento'),
 ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
